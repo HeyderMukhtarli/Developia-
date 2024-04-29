@@ -1,3 +1,5 @@
+package ders2;
+
 import java.math.BigDecimal;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
