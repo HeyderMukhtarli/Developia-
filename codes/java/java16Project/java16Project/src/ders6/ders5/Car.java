@@ -1,6 +1,8 @@
-package ders5;
+package ders6.ders5;
 
 public class Car {
+    static int nese;
+
     // global vars
      int price;
      String model;

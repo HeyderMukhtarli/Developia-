@@ -16,7 +16,7 @@ public class Main5 {
         //bmw.start();
         System.out.println(bmw.speed);
 */
-        Car bmw=new Car();
+        Car bmw=new Car(15);
 
         Car kia=new Car();
         kia.model="RIO";
@@ -33,4 +33,8 @@ public class Main5 {
 
 
     }
+}
+
+class Person{
+
 }
