@@ -15,8 +15,8 @@ public class BankV2 {
 
          Shopping shopping=new  Shopping();
 
-        shopping.shop(kapital,new Basket(alma,5),new Basket(armud,2)
-                ,new Basket(alca,4));
+        shopping.shop(kapital,new Basket(alma,new BigDecimal("5")),new Basket(armud,new BigDecimal("2"))
+                ,new Basket(alca,new BigDecimal("4")));
 
         // kapital.showBalance();
 
@@ -57,7 +57,7 @@ class Bank{
     }
 }
 
-class Product{
+  class Product{
     String name;
     BigDecimal price;
 
@@ -72,11 +72,11 @@ class  Shopping{
 
 
     void shop(  Bank b,Basket ... products ){
-        int total=0;
+        BigDecimal total=new BigDecimal("0");
 
         for (Basket basket:
         products) {
-            total+=basket.product.price*basket.quantity;
+           total= total.add(basket.product.price.multiply(basket.quantity));
             System.out.println("alinan mehsul = "+basket.product.name+", miqdarida = "+basket.quantity);
         }
 
@@ -94,9 +94,9 @@ class  Shopping{
 
 class Basket{
     Product product;
-    int quantity;
+    BigDecimal quantity;
 
-    public Basket(Product product, int quantity) {
+    public Basket(Product product, BigDecimal quantity) {
         this.product = product;
         this.quantity = quantity;
     }
