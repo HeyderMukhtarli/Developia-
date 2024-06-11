@@ -16,7 +16,7 @@ public class Main14 {
 
     }
 
-    static void printArrayElement(int[] massiv,int index) throws MenimExc{
+    static void printArrayElement(int[] massiv,int index) throws ArithmeticException{
         if(index>=massiv.length || index<0){
             Alma quba=new Alma();
             quba.color="red";

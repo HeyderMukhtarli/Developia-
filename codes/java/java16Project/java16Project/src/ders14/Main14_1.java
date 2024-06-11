@@ -11,12 +11,10 @@ int[] massivim={4,7,8};
             c=a/b;
             System.out.println(massivim[10]);
 
-        }catch (ArithmeticException exception){
+        }catch (  ArithmeticException | ArrayIndexOutOfBoundsException exception){
             System.out.println("0a bolunme olmur");
         }
-        catch (ArrayIndexOutOfBoundsException exception){
-            System.out.println("massin olmyan ele mur etdin");
-        }finally {
+         finally {
 
         }
 
