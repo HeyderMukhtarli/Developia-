@@ -1,6 +1,15 @@
 package az.developia.springjava16;
 
+import jakarta.persistence.*;
+
+@Entity
+
 public class Student {
+    @Id
+
+    private Long id;
+
+
     private String name;
     private String surname;
 
@@ -23,5 +32,8 @@ public class Student {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+    public Student(){
+
     }
 }
