@@ -3,10 +3,10 @@ package az.developia.springjava16;
 import jakarta.persistence.*;
 
 @Entity
-
+@Table(name="students")
 public class Student {
     @Id
-
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -35,5 +35,13 @@ public class Student {
     }
     public Student(){
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
