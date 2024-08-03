@@ -21,6 +21,7 @@ public class BookRestController {
 
 	@PostMapping
 	public void add(@Valid @RequestBody BookAddRequestDTO req, BindingResult br) {
+		req.setAuthor(req.getAuthor().trim());
 		if (br.hasErrors()) {
 			throw new OurException("melumatlarin tamligi pozulub", "", br);
 		}
