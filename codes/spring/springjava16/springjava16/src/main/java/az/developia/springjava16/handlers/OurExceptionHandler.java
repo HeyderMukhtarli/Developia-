@@ -8,9 +8,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import az.developia.springjava16.ErrorResponse;
-import az.developia.springjava16.MyFE;
-import az.developia.springjava16.OurException;
+import az.developia.springjava16.exception.OurException;
+import az.developia.springjava16.models.MyFE;
+import az.developia.springjava16.response.ErrorResponse;
 
 @RestControllerAdvice
 public class OurExceptionHandler {

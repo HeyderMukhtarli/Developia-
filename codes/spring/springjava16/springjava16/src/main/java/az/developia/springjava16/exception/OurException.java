@@ -1,4 +1,4 @@
-package az.developia.springjava16;
+package az.developia.springjava16.exception;
 
 import org.springframework.validation.BindingResult;
 
