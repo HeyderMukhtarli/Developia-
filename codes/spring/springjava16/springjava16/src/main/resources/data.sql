@@ -4,4 +4,3 @@ insert into books
 ('CSS 3',12,544,'James'),
 ('Html 5',56,232,'Aysu');
 
- 

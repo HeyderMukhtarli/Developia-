@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import az.developia.springjava16.MessageSender;
 import az.developia.springjava16.exception.OurException;
 import az.developia.springjava16.request.BookAddRequestDTO;
 import az.developia.springjava16.request.BookUpdateNameRequestDTO;
@@ -29,9 +30,11 @@ import lombok.RequiredArgsConstructor;
 public class BookRestController {
 
 	private final BookService service;
+	private final MessageSender sender;
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
+
 	public void add(@Valid @RequestBody BookAddRequestDTO req, BindingResult br) {
 
 		if (br.hasErrors()) {
@@ -62,6 +65,7 @@ public class BookRestController {
 
 	@GetMapping(path = "/{id}")
 	// /books/20
+	// books/Anar
 	public BookResponseDTO findById(@PathVariable Long id) {
 
 		return service.findById(id);
@@ -70,6 +74,8 @@ public class BookRestController {
 	@GetMapping
 
 	public BookListResponseDTO findAll() {
+
+		sender.send("yeyinti var");
 
 		return service.findAll();
 	}
@@ -83,6 +89,20 @@ public class BookRestController {
 		}
 
 		service.updateName(req);
+	}
+
+	@GetMapping(path = "/pagination/begin/{begin}/length/{length}")
+// /books/pagination/begin/90/length/20
+	public BookListResponseDTO findAllPagination(@PathVariable Integer begin, @PathVariable Integer length) {
+
+		return service.findAllPagination(begin, length);
+	}
+
+	@GetMapping(path = "/name-search/{name}")
+
+	public BookListResponseDTO findByName(@PathVariable String name) {
+
+		return service.findByName(name);
 	}
 
 }

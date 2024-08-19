@@ -20,4 +20,8 @@ public interface BookService {
 
 	void updateName(BookUpdateNameRequestDTO req);
 
+	BookListResponseDTO findAllPagination(Integer begin, Integer length);
+
+	BookListResponseDTO findByName(String name);
+
 }
