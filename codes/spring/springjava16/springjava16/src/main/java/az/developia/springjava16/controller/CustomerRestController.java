@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import az.developia.springjava16.repository.CustomerRepository;
+import az.developia.springjava16.repository.CustomerViewRepository;
 import az.developia.springjava16.response.CustomerResponseDTO;
 import lombok.RequiredArgsConstructor;
 
@@ -15,12 +16,14 @@ import lombok.RequiredArgsConstructor;
 public class CustomerRestController {
 
 	private final CustomerRepository repository;
+	private final CustomerViewRepository viewRepository;
 
 	@GetMapping(path = "/{id}")
 
 	public CustomerResponseDTO findById(@PathVariable Long id) {
 		CustomerResponseDTO resp = new CustomerResponseDTO();
 		resp.setCustomer(repository.findById(id).get());
+		System.out.println(viewRepository.findAll());
 		return resp;
 
 	}

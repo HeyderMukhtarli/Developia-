@@ -11,20 +11,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "menus")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class CustomerEntity {
+public class MenuEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	private String lang;
 
-	private String phone;
+	private String keyColumn;
+
+	private String valueColumn;
 
 }

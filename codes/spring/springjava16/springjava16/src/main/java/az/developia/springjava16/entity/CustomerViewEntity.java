@@ -1,5 +1,7 @@
 package az.developia.springjava16.entity;
 
+import org.hibernate.annotations.Immutable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,15 +11,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customer_order_count")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class CustomerEntity {
+@Immutable
+@ToString
+public class CustomerViewEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +30,7 @@ public class CustomerEntity {
 	private String name;
 
 	private String phone;
+
+	private Integer orderCount;
 
 }
