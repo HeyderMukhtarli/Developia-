@@ -1,6 +1,7 @@
 package az.developia.springjava16.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class BookRestController {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-
+	@PreAuthorize(value = "hasAuthority('ROLE_ADD_BOOK')")
 	public void add(@Valid @RequestBody BookAddRequestDTO req, BindingResult br) {
 
 		if (br.hasErrors()) {
@@ -72,7 +73,7 @@ public class BookRestController {
 	}
 
 	@GetMapping
-
+	@PreAuthorize(value = "hasAuthority('ROLE_GET_BOOK_LIST')")
 	public BookListResponseDTO findAll() {
 
 		sender.send("yeyinti var");
