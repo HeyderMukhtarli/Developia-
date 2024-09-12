@@ -1,7 +1,5 @@
 package az.developia.springjava16.entity;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,28 +11,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "books")
+@Table(name = "authorities")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class BookEntity {
+public class AuthorityEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	private String username;
 
-	private Double price;
-
-	private Integer pageCount;
-
-	private String author;
-
-	private String creator;
-
-	private LocalDateTime registerDate;
+	private String authority;
 
 }

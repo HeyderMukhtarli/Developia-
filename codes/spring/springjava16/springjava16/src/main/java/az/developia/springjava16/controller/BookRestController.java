@@ -21,7 +21,7 @@ import az.developia.springjava16.request.BookUpdateNameRequestDTO;
 import az.developia.springjava16.request.BookUpdateRequestDTO;
 import az.developia.springjava16.response.BookListResponseDTO;
 import az.developia.springjava16.response.BookResponseDTO;
-import az.developia.springjava16.service.BookService;
+import az.developia.springjava16.service.BookServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +30,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookRestController {
 // field setter const
-	private final BookService service;
+	private final BookServiceImpl service;
 	private final MessageSender sender;
 
 	@PostMapping
@@ -47,6 +47,7 @@ public class BookRestController {
 
 	@PutMapping
 	@ResponseStatus(code = HttpStatus.OK)
+	@PreAuthorize(value = "hasAuthority('ROLE_UPDATE_BOOK')")
 	public void update(@Valid @RequestBody BookUpdateRequestDTO req, BindingResult br) {
 
 		if (br.hasErrors()) {
@@ -76,9 +77,14 @@ public class BookRestController {
 	@PreAuthorize(value = "hasAuthority('ROLE_GET_BOOK_LIST')")
 	public BookListResponseDTO findAll() {
 
-		sender.send("yeyinti var");
-
 		return service.findAll();
+	}
+
+	@GetMapping(path = "/begin/{begin}/length/{length}")
+	@PreAuthorize(value = "hasAuthority('ROLE_GET_BOOK_LIST')")
+	public BookListResponseDTO findAllByCreatorPagination(@PathVariable Integer begin, @PathVariable Integer length) {
+
+		return service.findAllPagination(begin, length);
 	}
 
 	@PatchMapping

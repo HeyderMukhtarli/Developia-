@@ -1,9 +1,11 @@
 package az.developia.springjava16.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import az.developia.springjava16.entity.BookEntity;
@@ -19,63 +21,102 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl {
 
 	private final BookRepository repository;
 
 	private final ModelMapper mapper;
 
-	@Override
 	public void add(BookAddRequestDTO req) {
 		BookEntity entity = new BookEntity();
 		mapper.map(req, entity);
+		entity.setRegisterDate(LocalDateTime.now());
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		entity.setCreator(username);
 		repository.save(entity);
 
 	}
 
-	@Override
 	public BookListResponseDTO findAll() {
 		List<BookEntity> entities = repository.findAll();
 		return entitiesToDtos(entities);
 	}
 
-	@Override
+	public BookListResponseDTO findAllPagination(Integer begin, Integer length) {
+		String creator = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		List<BookEntity> entities = repository.findAllByCreatorPagination(creator, begin, length);
+
+		return entitiesToDtos(entities);
+	}
+
 	public BookResponseDTO findById(Long id) {
 		BookEntity entity = repository.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", "", null));
-		BookResponseDTO dto = new BookResponseDTO();
-		mapper.map(entity, dto);
-		return dto;
+
+		String creator = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		if (entity.getCreator().equals(creator)) {
+
+			BookResponseDTO dto = new BookResponseDTO();
+			mapper.map(entity, dto);
+			return dto;
+		} else {
+			throw new OurException("bu kitab sene aid deyil", "", null);
+		}
+
 	}
 
-	@Override
 	public void deleteById(Long id) {
-		repository.deleteById(id);
+		BookEntity entity = repository.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", "", null));
+
+		String creator = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		if (entity.getCreator().equals(creator)) {
+			repository.deleteById(id);
+		} else {
+			throw new OurException("bu kitab sene aid deyil", "", null);
+
+		}
 
 	}
 
-	@Override
 	public void update(BookUpdateRequestDTO req) {
 		Long id = req.getId();
 		BookEntity entity = repository.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", "", null));
-		mapper.map(req, entity);
-		repository.save(entity);
+		String creator = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		if (entity.getCreator().equals(creator)) {
+			mapper.map(req, entity);
+			repository.save(entity);
+		} else {
+			throw new OurException("bu kitab sene aid deyil", "", null);
+
+		}
+
 	}
 
-	@Override
 	public void updateName(BookUpdateNameRequestDTO req) {
 		Long id = req.getId();
 		BookEntity entity = repository.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", "", null));
-		mapper.map(req, entity);
-		repository.save(entity);
+
+		String creator = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		if (entity.getCreator().equals(creator)) {
+
+			mapper.map(req, entity);
+			repository.save(entity);
+		} else {
+			throw new OurException("bu kitab sene aid deyil", "", null);
+
+		}
 	}
 
-	@Override
-	public BookListResponseDTO findAllPagination(Integer begin, Integer length) {
+	public BookListResponseDTO findAllPagination2(Integer begin, Integer length) {
 		List<BookEntity> entities = repository.findAllPagination(begin, length);
 		return entitiesToDtos(entities);
 	}
 
-	@Override
 	public BookListResponseDTO findByName(String name) {
 		List<BookEntity> entities = repository.findAllSearch(name);
 		return entitiesToDtos(entities);

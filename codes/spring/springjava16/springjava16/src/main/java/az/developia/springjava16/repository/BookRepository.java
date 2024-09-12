@@ -20,4 +20,7 @@ public interface BookRepository extends JpaRepository<BookEntity, Long> {
 	@Query(value = "select * from books where name like %?1%", nativeQuery = true)
 	List<BookEntity> findAllSearch(String name);
 
+	@Query(value = "select * from books where creator =  ?1 limit ?2,?3", nativeQuery = true)
+	List<BookEntity> findAllByCreatorPagination(String creator, Integer begin, Integer length);
+
 }
