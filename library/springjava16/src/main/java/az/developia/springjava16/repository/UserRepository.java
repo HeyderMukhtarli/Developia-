@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import az.developia.springjava16.entity.UserEntity;
 import jakarta.transaction.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -21,4 +22,8 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
 	void addStudentAuthorities(String username);
 
 	Optional<UserEntity> findByEmail(String email);
+	@Query(value = "select * from users where profession=?1",nativeQuery = true)
+	List<UserEntity> findStudents(String prefession);
+
+	void deleteByEmail(String email);
 }

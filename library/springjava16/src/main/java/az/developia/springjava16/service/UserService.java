@@ -1,6 +1,10 @@
 package az.developia.springjava16.service;
 
+import az.developia.springjava16.dto.request.UserUpdateRequestDTO;
+import az.developia.springjava16.dto.response.AuthoritiesListResponseDTO;
 import az.developia.springjava16.dto.response.LoginResponseDTO;
+import az.developia.springjava16.dto.response.UsersListResponseDTO;
+import az.developia.springjava16.entity.AuthorityListEntity;
 import az.developia.springjava16.exceptionHandler.OurException;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +15,8 @@ import az.developia.springjava16.repository.UserRepository;
 import az.developia.springjava16.dto.request.UserAddRequestDTO;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -58,5 +64,51 @@ public class UserService {
 		mapper.map(ue, loginResponseDTO);
 		return loginResponseDTO;
 	};
+	public void updateUser(UserUpdateRequestDTO userUpdateRequestDTO,String profession){
 
+		Optional<UserEntity> userEntity=repo.findByEmail(userUpdateRequestDTO.getEmail());
+		if(userEntity.isPresent()){
+			if(profession.equals(userEntity.get().getProfession())){
+				mapper.map(userUpdateRequestDTO,userEntity);
+				repo.save(userEntity.get());
+			}else {
+				throw new OurException("Email does not belong to student",null,null);
+			}
+
+		}else {
+			throw new OurException("not found",null,null);
+		}
+	}
+
+	public List<UsersListResponseDTO> getStudents() {
+		List<UserEntity> students=repo.findStudents("student");
+		return entitiesToDtos(students);
+	}
+
+	private List<UsersListResponseDTO> entitiesToDtos(List<UserEntity> entities) {
+		List<UsersListResponseDTO> dtoEntities = new ArrayList<UsersListResponseDTO>();
+		for (UserEntity en : entities) {
+			UsersListResponseDTO dt = new UsersListResponseDTO();
+			mapper.map(en, dt);
+			dtoEntities.add(dt);
+		}
+
+
+		return dtoEntities;
+	}
+
+	public void deleteByEmail(String email) {
+		Optional<UserEntity> ue=repo.findByEmail(email);
+		if(ue.isPresent()){
+			if(ue.get().getProfession().equals("student")){
+				repo.deleteByEmail(email);
+
+			}else {
+				throw new OurException("Email not belongs to student",null,null);
+			}
+
+		}else {
+			throw new OurException("Email not found",null,null);
+		}
+	}
 }

@@ -46,7 +46,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf().disable().authorizeRequests().requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.requestMatchers("/users/register-librarian","/users/register-student").permitAll().anyRequest().authenticated().and().httpBasic().and().build();
+				.requestMatchers("/users/register-librarian").permitAll().anyRequest().authenticated().and().httpBasic().and().build();
 	}
 
 }
