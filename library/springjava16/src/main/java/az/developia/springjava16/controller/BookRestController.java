@@ -2,17 +2,9 @@ package az.developia.springjava16.controller;
 
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import az.developia.springjava16.dto.request.BookAddRequestDTO;
 import az.developia.springjava16.dto.request.BookUpdateNameRequestDTO;
@@ -22,6 +14,9 @@ import az.developia.springjava16.dto.response.BookResponseDTO;
 import az.developia.springjava16.service.BookServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/books")
@@ -33,12 +28,10 @@ public class BookRestController {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-//	@PreAuthorize(value = "hasAuthority('ROLE_ADD_BOOK')")
-	public void add(@Valid @RequestBody BookAddRequestDTO req, BindingResult br) {
+	@PreAuthorize(value = "hasAuthority('ROLE_ADD_BOOK')")
+	public String add(@Valid @RequestParam BookAddRequestDTO req, @RequestParam MultipartFile file)  {
 
-
-
-		service.add(req);
+		return  service.add(req,file);
 	}
 
 	@PutMapping

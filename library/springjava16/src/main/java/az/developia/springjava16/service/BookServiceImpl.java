@@ -1,5 +1,7 @@
 package az.developia.springjava16.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import az.developia.springjava16.dto.response.BookListResponseDTO;
 import az.developia.springjava16.dto.response.BookResponseDTO;
 import az.developia.springjava16.dto.response.BookResponseDTOEntity;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @RequiredArgsConstructor
 @Service
@@ -26,15 +29,26 @@ public class BookServiceImpl {
 	private final BookRepository repository;
 
 	private final ModelMapper mapper;
+	private final String FOLDER_PATH="C:\\Users\\HP\\Desktop\\Desktop";
 
-	public void add(BookAddRequestDTO req) {
-		BookEntity entity = new BookEntity();
-		mapper.map(req, entity);
-		entity.setRegisterDate(LocalDateTime.now());
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+	public String  add(BookAddRequestDTO req, MultipartFile file)  {
+		String filePath=FOLDER_PATH+file.getOriginalFilename();
+		BookEntity bookEntity=repository.save(BookEntity.builder().name(req.getName())
+				.filePath(filePath).
+				imgName(file.getOriginalFilename())
+				.type(file.getContentType())
+				.price(req.getPrice())
+				.author(req.getAuthor())
+				.creator(SecurityContextHolder.getContext().getAuthentication().getName())
+				.pageCount(req.getPageCount())
+				.registerDate(LocalDateTime.now()).build());
+		try {
+			file.transferTo(new File(filePath));
+		}catch (IOException ex){
+			throw new OurException("IO exception",null,null);
+		}
+		return "book uploaded successfully:" + filePath;
 
-		entity.setCreator(username);
-		repository.save(entity);
 
 	}
 
