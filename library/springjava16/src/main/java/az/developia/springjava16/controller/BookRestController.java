@@ -1,6 +1,7 @@
 package az.developia.springjava16.controller;
 
 import az.developia.springjava16.dto.GeneralResponse;
+import az.developia.springjava16.entity.BookSearch;
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -71,6 +72,12 @@ GeneralResponse gr=new		GeneralResponse();
 		gr.setData(service.updateBook(id,req,file));
 		return gr;
 	}
+ @GetMapping("/lastSearches")
+	public GeneralResponse<List<BookSearch>> getLastSearches(){
+	 GeneralResponse<List<BookSearch>> gr=new GeneralResponse();
+	 gr.setData(service.getLastSearches());
+	 return gr;
+ }
 
 
 

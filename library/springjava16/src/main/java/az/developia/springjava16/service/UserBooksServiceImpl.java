@@ -14,6 +14,7 @@ import az.developia.springjava16.service.interfaces.UserBooksService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
@@ -29,6 +30,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@EnableCaching
 public class UserBooksServiceImpl implements UserBooksService {
 
   private  final UserBooksRepository repo;

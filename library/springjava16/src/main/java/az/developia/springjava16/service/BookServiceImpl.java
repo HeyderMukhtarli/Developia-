@@ -10,12 +10,18 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import az.developia.springjava16.dto.GeneralResponse;
+import az.developia.springjava16.entity.BookSearch;
 import az.developia.springjava16.exceptionHandler.OurException;
+import az.developia.springjava16.repository.RedisSearchRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -38,9 +44,10 @@ import javax.imageio.stream.ImageOutputStream;
 public class BookServiceImpl {
 
 	private final BookRepository repository;
-
+  private final RedisSearchRepository redisSearchRepository;
 
 	private final ModelMapper mapper;
+
 	private final String FOLDER_PATH="C:\\Users\\HP\\Desktop\\Desktop\\";
 
 	public String  add(BookAddRequestDTO req, MultipartFile file)  {
@@ -66,11 +73,12 @@ public class BookServiceImpl {
 	}
 
 
-
+	@CacheEvict(key = "'latest_searches'", value = "BookSearch")
 	public List<BookResponseDTO> findAll(Integer begin, Integer length,String search) {
 		List<BookEntity> entities = repository.findAllPagination(begin, length,search);
 		List<BookResponseDTO> books = new ArrayList<>();
-
+		BookSearch bookSearch = new BookSearch(search);
+		redisSearchRepository.saveSearch(bookSearch);
 		entities.forEach(data -> {
 			try {
 				String filePath = data.getFilePath();
@@ -224,8 +232,10 @@ public class BookServiceImpl {
 		}
 		return "Book updated successfully";
 	}
-
-
-
-
+	@Cacheable(key = "'latest_searches'", value = "BookSearch")
+	public List<BookSearch> getLastSearches() {
+	   List<BookSearch> objects = redisSearchRepository.getLatestSearches();
+		System.out.println(objects);
+	   return objects;
+	}
 }
