@@ -1,10 +1,7 @@
 package az.developia.springjava16.service;
 
 import az.developia.springjava16.dto.response.AuthoritiesResponseDTO;
-import az.developia.springjava16.dto.response.BookListResponseDTO;
-import az.developia.springjava16.dto.response.BookResponseDTOEntity;
 import az.developia.springjava16.entity.AuthorityEntity;
-import az.developia.springjava16.entity.BookEntity;
 import az.developia.springjava16.repository.AuthorityRepository;
 import az.developia.springjava16.service.interfaces.AuthorityService;
 import lombok.RequiredArgsConstructor;

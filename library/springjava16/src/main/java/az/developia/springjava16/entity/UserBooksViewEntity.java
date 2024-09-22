@@ -1,27 +1,25 @@
 package az.developia.springjava16.entity;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.Immutable;
+
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.*;
-
 @Entity
-@Table(name = "books")
+@Table(name = "user_books_view")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BookEntity {
-
+@Immutable
+public class UserBooksViewEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long userBookId;
+	private String email;
+	private Long book_id;
 
 	private String name;
 
@@ -39,5 +37,4 @@ public class BookEntity {
 	private String type;
 
 	private String filePath;
-
 }

@@ -1,30 +1,28 @@
 package az.developia.springjava16.dto.response;
 
 import jakarta.persistence.Lob;
-import jakarta.validation.constraints.*;
-import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
-public class BookResponseDTO {
-	private Long id;
+public class UserBooksResponseDTO {
+
+	private Long userBookId;
+	private String email;
+	private Long book_id;
 
 	private String name;
 
 	private Double price;
 
-
 	private Integer pageCount;
 
 	private String author;
 
-	private String registerDate;
+	private String creator;
 
+	private String registerDate;
 	@Lob
 	private byte[] image;
-
 }

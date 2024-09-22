@@ -1,7 +1,10 @@
 package az.developia.springjava16.dto.request;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,10 +27,12 @@ public class BookAddRequestDTO {
 	private Integer pageCount;
 
 	@NotBlank(message = "muellifi bos qoymaq olmaz")
-	@Pattern(regexp = "[a-z]{3}", message = "muellifin adi mutleq 3 simvol olmalidir")
 	private String author;
 
-	@Past(message = "kecmis tarix yazin ")
-	private LocalDate publishDate;
+//	@Past(message = "kecmis tarix yazin ")
+//
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+	private OffsetDateTime publishDate;
 
 }

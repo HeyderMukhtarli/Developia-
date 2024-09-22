@@ -3,24 +3,27 @@ package az.developia.springjava16.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Builder
-@Table(name = "authorities")
+@Table(name = "user_books")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class FileEntity {
+@Builder
+public class UserBooksEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
 
-	private String type;
+	private String email;
 
-	private String filePath;
+
+	private long bookId;
+
+
 
 }
