@@ -53,10 +53,8 @@ public class RedisSearchRepository {
            Object oldestKey = listOps.rightPop("BookSearchOrder");
             if (oldestKey != null) {
                 hashOps.delete("BookSearch", oldestKey);
-                System.out.println("Removed oldest search: " + oldestKey);
             }
         }
-        System.out.println("Current count after trimming: " + listOps.size("BookSearchOrder"));
     }
 
     public List<BookSearch> getLatestSearches() {
