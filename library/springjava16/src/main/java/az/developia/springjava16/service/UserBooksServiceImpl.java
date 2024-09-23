@@ -5,12 +5,15 @@ import az.developia.springjava16.dto.response.AuthoritiesResponseDTO;
 import az.developia.springjava16.dto.response.BookResponseDTO;
 import az.developia.springjava16.dto.response.UserBooksResponseDTO;
 import az.developia.springjava16.entity.*;
+import az.developia.springjava16.enums.LibraryActivity;
 import az.developia.springjava16.exceptionHandler.OurException;
 import az.developia.springjava16.repository.AuthorityRepository;
+import az.developia.springjava16.repository.HistoryRepository;
 import az.developia.springjava16.repository.UserBooksRepository;
 import az.developia.springjava16.repository.UserBooksViewRepository;
 import az.developia.springjava16.service.interfaces.AuthorityService;
 import az.developia.springjava16.service.interfaces.UserBooksService;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +28,30 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @EnableCaching
 public class UserBooksServiceImpl implements UserBooksService {
-
+private final HistoryRepository historyRepository;
   private  final UserBooksRepository repo;
   private  final UserBooksViewRepository userBooksViewRepository;
   private  final ModelMapper mapper;
     @Override
     public String addUserBooks(String email,Long id) {
        repo.save(UserBooksEntity.builder().email(email).bookId(id).build());
+       historyRepository.save(  HistoryEntity.builder().activity(LibraryActivity.BORROW).email(email).bookId(id).timestamp(LocalDateTime.now()).build());
        return "Success";
     }
 
     @Override
     public String deleteUserBooks(Long id) {
         UserBooksEntity entity = repo.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", null,""));
+        historyRepository.save( HistoryEntity.builder().activity(LibraryActivity.RETURN).email(entity.getEmail()).bookId(entity.getBookId()).timestamp(LocalDateTime.now()).build());
         repo.deleteById(id);
         return "Success";
     }

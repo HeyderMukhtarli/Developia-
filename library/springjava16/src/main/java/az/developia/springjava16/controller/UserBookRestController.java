@@ -27,7 +27,7 @@ public class UserBookRestController {
 
     @PostMapping()
     @PreAuthorize(value = "hasAuthority('ROLE_ADD_USER_BOOKS')")
-    public GeneralResponse<String> updateBook(@RequestBody AddUserBooksRequestDTO req) {
+    public GeneralResponse<String> addBook(@RequestBody AddUserBooksRequestDTO req) {
      String username = SecurityContextHolder.getContext().getAuthentication().getName();
         GeneralResponse<String> gr = new GeneralResponse();
         gr.setData(service.addUserBooks(req.getEmail(),req.getBookId()));
@@ -35,14 +35,14 @@ public class UserBookRestController {
     }
     @DeleteMapping("/{id}")
     @PreAuthorize(value = "hasAuthority('ROLE_DELETE_USER_BOOKS')")
-    public GeneralResponse<String> updateBook(@PathVariable Long id) {
+    public GeneralResponse<String> deleteBook(@PathVariable Long id) {
         GeneralResponse<String> gr = new GeneralResponse();
         gr.setData(service.deleteUserBooks(id));
         return gr;
     }
     @GetMapping()
     @PreAuthorize(value = "hasAuthority('ROLE_GET_USER_BOOKS')")
-    public GeneralResponse<List<UserBooksResponseDTO>> updateBook(@RequestParam String email) {
+    public GeneralResponse<List<UserBooksResponseDTO>> getBook(@RequestParam String email) {
         GeneralResponse<List<UserBooksResponseDTO>> gr = new GeneralResponse();
         gr.setData(service.getUserBooks(email));
         return gr;
