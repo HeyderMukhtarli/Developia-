@@ -67,7 +67,6 @@
     <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-starter-webmvc-api:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-starter-common:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-core-jakarta:2.2.21" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.14.0" level="project" />
     <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-annotations-jakarta:2.2.21" level="project" />
     <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-models-jakarta:2.2.21" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1" level="project" />
@@ -142,6 +141,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:6.1.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.1" level="project" />
+    <orderEntry type="library" name="Maven: net.coobird:thumbnailator:0.4.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.111.Final" level="project" />
@@ -160,10 +160,32 @@
     <orderEntry type="library" name="Maven: redis.clients:jedis:3.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.12.0" level="project" />
+    <orderEntry type="library" name="Maven: io.minio:minio:8.5.11" level="project" />
+    <orderEntry type="library" name="Maven: com.carrotsearch.thirdparty:simple-xml-safe:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:33.0.0-jre" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.23.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:2.8" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:4.12.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okio:okio:3.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okio:okio-jvm:3.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.9.24" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.9.24" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk18on:1.78" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.26.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.15.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.14.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.16.1" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.10.5" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.32" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.7.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.42.0" level="project" />
+    <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.42.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.mysql:mysql-connector-j:8.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:3.2.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:2.2.224" level="project" />

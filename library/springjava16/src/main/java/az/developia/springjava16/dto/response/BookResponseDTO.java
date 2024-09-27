@@ -23,8 +23,10 @@ public class BookResponseDTO {
 	private String author;
 
 	private String registerDate;
+	private String  imageName;
 
-	@Lob
-	private byte[] image;
+	private String  mediumFilePath ;
+	private String   thumbnailFilePath ;
+	private String  originalFilePath ;
 
 }

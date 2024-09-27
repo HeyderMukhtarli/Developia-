@@ -38,8 +38,10 @@ public class BookRestController {
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	@PreAuthorize(value = "hasAuthority('ROLE_GET_BOOKS')")
-	public GeneralResponse<List<BookResponseDTO>> getBooks(@RequestParam Integer begin, @RequestParam Integer length,@RequestParam String search) {
+	public GeneralResponse<List<BookResponseDTO>> getBooks(@RequestParam Integer begin, @RequestParam Integer length,@RequestParam(required = false) String search) {
            GeneralResponse<List<BookResponseDTO>> gr=new GeneralResponse();
+
+
 		   gr.setData(service.findAll(begin,length,search));
 		   return gr;
 

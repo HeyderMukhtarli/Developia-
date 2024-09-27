@@ -38,6 +38,8 @@ public class BookEntity {
 
 	private String type;
 
-	private String filePath;
+	private String  mediumFilePath ;
+	private String   thumbnailFilePath ;
+	private String  originalFilePath ;
 
 }
