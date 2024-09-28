@@ -8,10 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import az.developia.springjava16.dto.GeneralResponse;
@@ -19,11 +16,9 @@ import az.developia.springjava16.entity.BookSearch;
 import az.developia.springjava16.exceptionHandler.OurException;
 import az.developia.springjava16.repository.RedisSearchRepository;
 import az.developia.springjava16.utils.ImageResizeUtils;
-import io.minio.BucketExistsArgs;
-import io.minio.MakeBucketArgs;
-import io.minio.MinioClient;
-import io.minio.PutObjectArgs;
+import io.minio.*;
 import io.minio.errors.*;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +36,6 @@ import az.developia.springjava16.dto.response.BookResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriteParam;
-import javax.imageio.ImageWriter;
-import javax.imageio.stream.ImageOutputStream;
 
 @RequiredArgsConstructor
 @Service
@@ -60,13 +51,11 @@ public class BookServiceImpl {
     @Value("${minio.bucket-name}")
     private String bucketName;
 
-    private final String FOLDER_PATH = "C:\\Users\\HP\\Desktop\\Desktop\\";
 
     public String add(BookAddRequestDTO req, MultipartFile file) {
         try {
             boolean found = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
             if (!found) {
-                // Create the bucket if it doesn't exist
 
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
             }
@@ -88,15 +77,15 @@ public class BookServiceImpl {
         try {
             inputStream = file.getInputStream();
             originalBytes = inputStream.readAllBytes();
-            fileName = file.getOriginalFilename();
+            fileName = UUID.randomUUID()+"."+ getFileExtension(file.getOriginalFilename());
             String objectName = "original" + "/" + fileName;
             String thumbnailObjectName = "thumbnail" + "/" + fileName;
             String mediumObjectName = "medium" + "/" + fileName;
             thumbnailBytes = ImageResizeUtils.resizeImage(originalBytes, 150, 150);
             mediumBytes = ImageResizeUtils.resizeImage(originalBytes, 500, 500);
-            originalFilePath =bucketName+"/" +uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
-            thumbnailFilePath =bucketName+"/" + uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
-            mediumFilePath =bucketName+"/" + uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
+            originalFilePath =uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
+            thumbnailFilePath =uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
+            mediumFilePath =uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
         } catch (Exception e) {
             throw new OurException("io exception", null, null);
         }
@@ -106,12 +95,12 @@ public class BookServiceImpl {
         LocalDateTime publishDate = req.getPublishDate().toInstant().atZone(ZoneOffset.UTC).toLocalDateTime();
 
         BookEntity bookEntity = repository.save(BookEntity.builder().name(req.getName())
+                        .bucket(bucketName)
                 .originalFilePath(originalFilePath)
                 .mediumFilePath(mediumFilePath)
-                .thumbnailFilePath(thumbnailFilePath).
-                imgName(file.getOriginalFilename())
-                .type(file.getContentType())
+                .thumbnailFilePath(thumbnailFilePath)
                 .price(req.getPrice())
+                .type(getFileExtension(file.getOriginalFilename()))
                 .author(req.getAuthor())
                 .creator(SecurityContextHolder.getContext().getAuthentication().getName())
                 .pageCount(req.getPageCount())
@@ -163,6 +152,7 @@ public class BookServiceImpl {
                         .author(data.getAuthor())
                         .pageCount(data.getPageCount())
                         .price(data.getPrice())
+                        .bucket(data.getBucket())
                         .id(data.getId())
                         .name(data.getName()).build();
 
@@ -182,7 +172,9 @@ public class BookServiceImpl {
 
     public void deleteById(Long id) {
         BookEntity entity = repository.findById(id).orElseThrow(() -> new OurException("kitab tapilmadi", null, ""));
-
+        deleteImageFromMinio(entity.getOriginalFilePath());
+        deleteImageFromMinio(entity.getMediumFilePath());
+        deleteImageFromMinio(entity.getThumbnailFilePath());
         String creator = SecurityContextHolder.getContext().getAuthentication().getName();
 
 
@@ -206,7 +198,9 @@ public class BookServiceImpl {
                         .pageCount(entity.get().getPageCount())
                         .price(entity.get().getPrice())
                         .id(entity.get().getId())
+                        .bucket(entity.get().getBucket())
                         .name(entity.get().getName()).build();
+
                 return bookResponseDTO;
 
 
@@ -232,33 +226,33 @@ public class BookServiceImpl {
         try {
             inputStream = file.getInputStream();
             originalBytes = inputStream.readAllBytes();
-            fileName = file.getOriginalFilename();
+            fileName = UUID.randomUUID()+"."+ getFileExtension(file.getOriginalFilename());
             String objectName = "original" + "/" + fileName;
             String thumbnailObjectName = "thumbnail" + "/" + fileName;
             String mediumObjectName = "medium" + "/" + fileName;
             thumbnailBytes = ImageResizeUtils.resizeImage(originalBytes, 150, 150);
             mediumBytes = ImageResizeUtils.resizeImage(originalBytes, 500, 500);
-            originalFilePath =bucketName+"/" +uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
-            thumbnailFilePath =bucketName+"/" + uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
-            mediumFilePath =bucketName+"/" + uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
+            originalFilePath = uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
+            thumbnailFilePath =uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
+            mediumFilePath =uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
+            deleteImageFromMinio(entity.getOriginalFilePath());
+            deleteImageFromMinio(entity.getMediumFilePath());
+            deleteImageFromMinio(entity.getThumbnailFilePath());
         } catch (Exception e) {
             throw new OurException("io exception", null, null);
         }
 
         ///////////////////
-        String filePath = FOLDER_PATH + file.getOriginalFilename();
-
+      entity.setBucket( bucketName);
        entity.setMediumFilePath(mediumFilePath);
        entity.setOriginalFilePath(originalFilePath);
        entity.setThumbnailFilePath(thumbnailFilePath);
         entity.setName(req.getName());
-        entity.setOriginalFilePath(filePath);
-        entity.setImgName(file.getOriginalFilename());
-        entity.setType(file.getContentType());
         entity.setPrice(req.getPrice());
         entity.setAuthor(req.getAuthor());
         entity.setCreator(SecurityContextHolder.getContext().getAuthentication().getName());
         entity.setPageCount(req.getPageCount());
+         entity.setType(getFileExtension(file.getOriginalFilename()));
         repository.save(entity);
 
 
@@ -270,5 +264,29 @@ public class BookServiceImpl {
         List<BookSearch> objects = redisSearchRepository.getLatestSearches();
         System.out.println(objects);
         return objects;
+    }
+
+
+    public void deleteImageFromMinio(String objectName) {
+        try {
+            // Check if the object exists before attempting to delete
+
+                System.out.println("Object exists, proceeding to delete...");
+
+                RemoveObjectArgs removeObjectArgs = RemoveObjectArgs.builder()
+                        .bucket(bucketName)
+                        .object(objectName)
+                        .build();
+
+                minioClient.removeObject(removeObjectArgs);
+
+
+        } catch (MinioException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to delete file from MinIO: " + objectName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error deleting file: " + objectName);
+        }
     }
 }

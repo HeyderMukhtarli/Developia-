@@ -34,9 +34,10 @@ public class BookEntity {
 	private String creator;
 
 	private LocalDateTime registerDate;
-	private String imgName;
+
 
 	private String type;
+	private String bucket;
 
 	private String  mediumFilePath ;
 	private String   thumbnailFilePath ;

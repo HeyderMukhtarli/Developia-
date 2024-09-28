@@ -23,7 +23,7 @@ public class BookResponseDTO {
 	private String author;
 
 	private String registerDate;
-	private String  imageName;
+	private String bucket;
 
 	private String  mediumFilePath ;
 	private String   thumbnailFilePath ;
