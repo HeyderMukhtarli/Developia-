@@ -1,37 +1,25 @@
 package az.developia.springjava16.service;
 
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.file.Files;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import az.developia.springjava16.dto.GeneralResponse;
 import az.developia.springjava16.entity.BookSearch;
 import az.developia.springjava16.exceptionHandler.OurException;
 import az.developia.springjava16.repository.RedisSearchRepository;
 import az.developia.springjava16.utils.ImageResizeUtils;
 import io.minio.*;
 import io.minio.errors.*;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
 import az.developia.springjava16.entity.BookEntity;
 import az.developia.springjava16.repository.BookRepository;
 import az.developia.springjava16.dto.request.BookAddRequestDTO;
-import az.developia.springjava16.dto.request.BookUpdateNameRequestDTO;
-import az.developia.springjava16.dto.request.BookUpdateRequestDTO;
 import az.developia.springjava16.dto.response.BookResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
@@ -77,15 +65,15 @@ public class BookServiceImpl {
         try {
             inputStream = file.getInputStream();
             originalBytes = inputStream.readAllBytes();
-            fileName = UUID.randomUUID()+"."+ getFileExtension(file.getOriginalFilename());
+            fileName = UUID.randomUUID() + "." + getFileExtension(file.getOriginalFilename());
             String objectName = "original" + "/" + fileName;
             String thumbnailObjectName = "thumbnail" + "/" + fileName;
             String mediumObjectName = "medium" + "/" + fileName;
             thumbnailBytes = ImageResizeUtils.resizeImage(originalBytes, 150, 150);
             mediumBytes = ImageResizeUtils.resizeImage(originalBytes, 500, 500);
-            originalFilePath =uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
-            thumbnailFilePath =uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
-            mediumFilePath =uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
+            originalFilePath = uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
+            thumbnailFilePath = uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
+            mediumFilePath = uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
         } catch (Exception e) {
             throw new OurException("io exception", null, null);
         }
@@ -95,7 +83,7 @@ public class BookServiceImpl {
         LocalDateTime publishDate = req.getPublishDate().toInstant().atZone(ZoneOffset.UTC).toLocalDateTime();
 
         BookEntity bookEntity = repository.save(BookEntity.builder().name(req.getName())
-                        .bucket(bucketName)
+                .bucket(bucketName)
                 .originalFilePath(originalFilePath)
                 .mediumFilePath(mediumFilePath)
                 .thumbnailFilePath(thumbnailFilePath)
@@ -122,8 +110,6 @@ public class BookServiceImpl {
                 .build();
 
         minioClient.putObject(args);
-
-        // Return the full object path (folder + file name)
         return objectName;
     }
 
@@ -144,21 +130,21 @@ public class BookServiceImpl {
         }
         entities.forEach(data -> {
 
-                BookResponseDTO bookResponseDTO = BookResponseDTO.builder()
-                        .mediumFilePath(data.getMediumFilePath())
-                        .originalFilePath(data.getOriginalFilePath())
-                        .thumbnailFilePath(data.getThumbnailFilePath())
-                        .registerDate(data.getRegisterDate().toString())
-                        .author(data.getAuthor())
-                        .pageCount(data.getPageCount())
-                        .price(data.getPrice())
-                        .bucket(data.getBucket())
-                        .id(data.getId())
-                        .name(data.getName()).build();
+            BookResponseDTO bookResponseDTO = BookResponseDTO.builder()
+                    .mediumFilePath(data.getMediumFilePath())
+                    .originalFilePath(data.getOriginalFilePath())
+                    .thumbnailFilePath(data.getThumbnailFilePath())
+                    .registerDate(data.getRegisterDate().toString())
+                    .author(data.getAuthor())
+                    .pageCount(data.getPageCount())
+                    .price(data.getPrice())
+                    .bucket(data.getBucket())
+                    .id(data.getId())
+                    .name(data.getName()).build();
 
-                books.add(bookResponseDTO);
+            books.add(bookResponseDTO);
 
-            });
+        });
 
 
         return books;
@@ -189,25 +175,24 @@ public class BookServiceImpl {
 
         if (entity.isPresent()) {
 
-                BookResponseDTO bookResponseDTO = BookResponseDTO.builder()
-                        .originalFilePath(entity.get().getOriginalFilePath())
-                        .mediumFilePath(entity.get().getMediumFilePath())
-                        .thumbnailFilePath(entity.get().getThumbnailFilePath())
-                        .registerDate(entity.get().getRegisterDate().toString())
-                        .author(entity.get().getAuthor())
-                        .pageCount(entity.get().getPageCount())
-                        .price(entity.get().getPrice())
-                        .id(entity.get().getId())
-                        .bucket(entity.get().getBucket())
-                        .name(entity.get().getName()).build();
+            BookResponseDTO bookResponseDTO = BookResponseDTO.builder()
+                    .originalFilePath(entity.get().getOriginalFilePath())
+                    .mediumFilePath(entity.get().getMediumFilePath())
+                    .thumbnailFilePath(entity.get().getThumbnailFilePath())
+                    .registerDate(entity.get().getRegisterDate().toString())
+                    .author(entity.get().getAuthor())
+                    .pageCount(entity.get().getPageCount())
+                    .price(entity.get().getPrice())
+                    .id(entity.get().getId())
+                    .bucket(entity.get().getBucket())
+                    .name(entity.get().getName()).build();
 
-                return bookResponseDTO;
+            return bookResponseDTO;
 
 
         } else {
             throw new OurException("Book not exists", null, null);
         }
-
 
     }
 
@@ -226,15 +211,15 @@ public class BookServiceImpl {
         try {
             inputStream = file.getInputStream();
             originalBytes = inputStream.readAllBytes();
-            fileName = UUID.randomUUID()+"."+ getFileExtension(file.getOriginalFilename());
+            fileName = UUID.randomUUID() + "." + getFileExtension(file.getOriginalFilename());
             String objectName = "original" + "/" + fileName;
             String thumbnailObjectName = "thumbnail" + "/" + fileName;
             String mediumObjectName = "medium" + "/" + fileName;
             thumbnailBytes = ImageResizeUtils.resizeImage(originalBytes, 150, 150);
             mediumBytes = ImageResizeUtils.resizeImage(originalBytes, 500, 500);
             originalFilePath = uploadToMinio(originalBytes, objectName, file.getContentType());  // Store file path
-            thumbnailFilePath =uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
-            mediumFilePath =uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
+            thumbnailFilePath = uploadToMinio(thumbnailBytes, thumbnailObjectName, file.getContentType());  // Store thumbnail path
+            mediumFilePath = uploadToMinio(mediumBytes, mediumObjectName, file.getContentType());
             deleteImageFromMinio(entity.getOriginalFilePath());
             deleteImageFromMinio(entity.getMediumFilePath());
             deleteImageFromMinio(entity.getThumbnailFilePath());
@@ -243,16 +228,16 @@ public class BookServiceImpl {
         }
 
         ///////////////////
-      entity.setBucket( bucketName);
-       entity.setMediumFilePath(mediumFilePath);
-       entity.setOriginalFilePath(originalFilePath);
-       entity.setThumbnailFilePath(thumbnailFilePath);
+        entity.setBucket(bucketName);
+        entity.setMediumFilePath(mediumFilePath);
+        entity.setOriginalFilePath(originalFilePath);
+        entity.setThumbnailFilePath(thumbnailFilePath);
         entity.setName(req.getName());
         entity.setPrice(req.getPrice());
         entity.setAuthor(req.getAuthor());
         entity.setCreator(SecurityContextHolder.getContext().getAuthentication().getName());
         entity.setPageCount(req.getPageCount());
-         entity.setType(getFileExtension(file.getOriginalFilename()));
+        entity.setType(getFileExtension(file.getOriginalFilename()));
         repository.save(entity);
 
 
@@ -271,14 +256,14 @@ public class BookServiceImpl {
         try {
             // Check if the object exists before attempting to delete
 
-                System.out.println("Object exists, proceeding to delete...");
+            System.out.println("Object exists, proceeding to delete...");
 
-                RemoveObjectArgs removeObjectArgs = RemoveObjectArgs.builder()
-                        .bucket(bucketName)
-                        .object(objectName)
-                        .build();
+            RemoveObjectArgs removeObjectArgs = RemoveObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(objectName)
+                    .build();
 
-                minioClient.removeObject(removeObjectArgs);
+            minioClient.removeObject(removeObjectArgs);
 
 
         } catch (MinioException e) {

@@ -40,7 +40,6 @@ public class UserRestController {
 	@PostMapping(path = "/register-student")
 	@PreAuthorize(value = "hasAuthority('ROLE_ADD_STUDENT')")
 	@ResponseStatus(code = HttpStatus.CREATED)
-
 	public void addStudent(@Valid @RequestBody UserAddRequestDTO req, BindingResult br) {
 
 
