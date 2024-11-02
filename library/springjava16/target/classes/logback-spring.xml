@@ -11,7 +11,7 @@
         <file>C:/Users/HP/Desktop/Desktop/logs/logs.log</file> <!-- Base log file name -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>C:/Users/HP/Desktop/Desktop/logs/logs-%d{yyyy-MM-dd}.%i.log</fileNamePattern> <!-- Pattern for rolling files -->
-            <maxFileSize>5MB</maxFileSize>
+            <maxFileSize>1MB</maxFileSize>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>

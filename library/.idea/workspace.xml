@@ -4,216 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31e0f1d4-66c9-472f-9ed7-5d117d4749fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/controller/AuthorityListRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/controller/AuthorityRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/controller/StudentRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/GeneralResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/MyFieldError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/request/AddRoleRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/AuthoritiesListResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/AuthoritiesResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/LoginResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/exceptionHandler/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/exceptionHandler/OurException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/repository/AuthorityListRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/AuthorityListServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/AuthorityServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/interfaces/AuthorityListService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/interfaces/AuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/libraries/mysql_connector_j_9_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/java16Project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/Pusk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/basqa/Bmw.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d11/Alt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d11/Computer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d11/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d11/Ram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d111/Ust.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/A.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Alt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/B.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Computer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Eagle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Fish.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Main12.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/MainMisal12.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/QaaBilen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/Ram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/UcaBilen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/d12/d11/YemekYeyeBilen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders06/Main06.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders06/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders06/SalaryCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders06/bank/MainBank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_7.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders10/Main10_8.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Alt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Alt2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Main13.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Main13_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/MainMisal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/MainMisal2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/Ust.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/basqa/Eatable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/basqa/MainAnonim.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/daxili/EsasSiif.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders13/daxili/MainDaxili.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/Alma.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/Main14.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/Main14_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/Main14_9.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/MenimExc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders14/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders15/MainDates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/Adi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/Bank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/BankThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/MainBank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/Main_17.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/Main_Generics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/MyThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders17/Teze.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/BasitSiralama.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/BizimMassiv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/KolleksiyalarGiris.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/KolleksiyalarGirisSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/MainLazimsizMaybe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/MainLazimsizMaybe2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/MapMisal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders18/Novbe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders19/Main19.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders19/Main19Yeni.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders2/Ders2Praktika.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders2/Ders2Praktika2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders2/Ders2Praktika3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders2/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders20/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Beraberlik.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Daire1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Main1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Main2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Main3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/MainOperatorlar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/MainTernary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Menimsetme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders3/Mentiqi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/AgacMisali.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main10.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main11.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main12.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main13.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main7.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main8.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/Main9.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders4/SadeEdedler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders5/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders5/Main5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders5/Main5_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders6/ders5/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders6/ders5/Main5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders6/ders5/Main5_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/Main7_01.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/Main7_02.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/MainMassivler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/MainMassivler2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/MainVarArgs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders7/Sadeler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders8/BankV2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders8/Modif1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders8/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders8/basqa/AdiKlas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Main9.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Maraqli.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Maraqli2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Maraqli3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/Maraqli4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/StartViz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders9/StringReplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders_21/Doable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders_21/MainRunner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/java/java16Project/java16Project/src/ders_21/MainRunner2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/MessageSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/MuavinSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/MudurSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/Springjava16Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/Springjava16Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/config/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/config/MyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/config/SchedulerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/controller/BookRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/controller/BookRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/controller/CustomerRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/controller/MenuRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/controller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/controller/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/AuthorityEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/entity/AuthorityEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/entity/AuthorityListEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/CustomerViewEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/MenuEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/OrderDetailEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/OrderEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/ProductEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/exception/OurException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/handlers/OurExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/models/MyFE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/AuthorityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/repository/AuthorityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/CustomerViewRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/MenuRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/OrderDetailRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/request/BookAddRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/request/BookAddRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/request/BookUpdateNameRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/request/BookUpdateNameRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/request/BookUpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/request/BookUpdateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/request/UserAddRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/request/UserAddRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/response/BookListResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/BookListResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/response/BookResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/BookResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/response/BookResponseDTOEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/dto/response/BookResponseDTOEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/response/CustomerResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/response/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/service/BookService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/trim/HttpMessageConvertor.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/trim/HttpMessageConvertor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/java/az/developia/springjava16/trim/StringWithoutSpaceDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/trim/StringWithoutSpaceDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/resources/application-development.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/resources/application-development.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/resources/application-production.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/resources/application-production.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/spring/springjava16/springjava16/src/test/java/az/developia/springjava16/Springjava16ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/test/java/az/developia/springjava16/Springjava16ApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="31e0f1d4-66c9-472f-9ed7-5d117d4749fe" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -265,12 +56,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Desktop/projects/library/springjava16/src/main/java/az/developia/springjava16",
+    "last_opened_file_path": "C:/Users/HP/Documents/NetBeansProjects/Project/library",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "spring.configuration.checksum": "a5897f7e26bdbc714546747b41094198",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -307,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726341784923</updated>
       <workItem from="1726341787305" duration="27012000" />
+      <workItem from="1730589475636" duration="860000" />
     </task>
     <servers />
   </component>

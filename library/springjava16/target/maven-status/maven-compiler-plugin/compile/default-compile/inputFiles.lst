@@ -1,3 +1,4 @@
+C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\aop\LoggingAspect.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\config\MinioConfig.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\config\MyConfig.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\config\RedisConfig.java
@@ -53,9 +54,10 @@ C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\jav
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\interfaces\AuthorityListService.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\interfaces\AuthorityService.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\interfaces\UserBooksService.java
+C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\TwilioService.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\UserBooksServiceImpl.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\service\UserService.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\Springjava16Application.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\trim\HttpMessageConvertor.java
 C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\trim\StringWithoutSpaceDeserializer.java
-C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\utils\ResizeImage.java
+C:\Users\HP\Documents\NetBeansProjects\Project\library\springjava16\src\main\java\az\developia\springjava16\utils\ImageResizeUtils.java
