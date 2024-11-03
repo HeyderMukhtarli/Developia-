@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31e0f1d4-66c9-472f-9ed7-5d117d4749fe" name="Changes" comment="" />
+    <list default="true" id="31e0f1d4-66c9-472f-9ed7-5d117d4749fe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/controllers/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/GeneralResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/MyFieldError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/request/UserAddRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/request/UserUpdateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/response/LoginResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/dto/response/UsersListResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/entity/AuthorityEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/entity/AuthorityListEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/exceptionHandler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/exceptionHandler/OurException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/repositories/AuthorityListRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/repositories/AuthorityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../balance/src/main/resources/application-production.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../balance/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../balance/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/config/MyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../balance/src/main/java/com/developia/balance/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../balance/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../balance/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springjava16/src/main/java/az/developia/springjava16/config/SecurityConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726341784923</updated>
       <workItem from="1726341787305" duration="27012000" />
-      <workItem from="1730589475636" duration="1154000" />
+      <workItem from="1730589475636" duration="5105000" />
     </task>
     <servers />
   </component>

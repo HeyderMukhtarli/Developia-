@@ -20,33 +20,33 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-	@Autowired
-	private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
-	@Bean
-	public UserDetailsService userDetailsService() {
-		JdbcDaoImpl jdbcDao = new JdbcDaoImpl();
-		jdbcDao.setDataSource(dataSource);
+    @Bean
+    public UserDetailsService userDetailsService() {
+        JdbcDaoImpl jdbcDao = new JdbcDaoImpl();
+        jdbcDao.setDataSource(dataSource);
 
-		jdbcDao.setUsersByUsernameQuery("SELECT email, password, enabled FROM users WHERE email = ?");
+        jdbcDao.setUsersByUsernameQuery("SELECT email, password, enabled FROM users WHERE email = ?");
 
-		jdbcDao.setAuthoritiesByUsernameQuery("SELECT email, authority FROM authorities WHERE email = ?");
+        jdbcDao.setAuthoritiesByUsernameQuery("SELECT email, authority FROM authorities WHERE email = ?");
 
-		return jdbcDao;
-	}
+        return jdbcDao;
+    }
 
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-		authProvider.setUserDetailsService(userDetailsService());
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
 
-		return authProvider;
-	}
+        return authProvider;
+    }
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable().authorizeRequests().requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.requestMatchers("/users/register-librarian").permitAll().anyRequest().authenticated().and().httpBasic().and().build();
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http.csrf().disable().authorizeRequests().requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .requestMatchers("/users/register-librarian").permitAll().anyRequest().authenticated().and().httpBasic().and().build();
+    }
 
 }

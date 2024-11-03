@@ -1,4 +1,4 @@
-package com.developia.balance;
+package com.developia.balance.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.developia.balance;
+package com.developia.balance.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
@@ -22,6 +24,10 @@ public class SecurityConfig {
 
 	@Autowired
 	private DataSource dataSource;
+
+
+
+
 
 	@Bean
 	public UserDetailsService userDetailsService() {
@@ -35,18 +41,30 @@ public class SecurityConfig {
 		return jdbcDao;
 	}
 
+
 	@Bean
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailsService());
-
 		return authProvider;
+	}
+
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf().disable().authorizeRequests().requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.requestMatchers("/users/register-librarian").permitAll().anyRequest().authenticated().and().httpBasic().and().build();
+				.requestMatchers("/api/users/register-user","/api/users/send-otp","/api/users/verify-otp","/api/users/reset-password")
+				.permitAll()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.httpBasic()
+				.and().build();
 	}
 
 }
