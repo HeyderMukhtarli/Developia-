@@ -13,6 +13,7 @@ import com.developia.balance.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -163,6 +164,12 @@ public class UserService {
 		repo.save(user);
 
 		return "Password has been reset successfully.";
+	}
+
+    public String getBalance() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		UserEntity user = repo.findByEmail(username).orElseThrow(()->new OurException("User not found",null,""));
+		return user.getBalance().toString();
 	}
 }
 

@@ -3,6 +3,7 @@ package com.developia.balance.controllers;
 import com.developia.balance.dto.GeneralResponse;
 import com.developia.balance.dto.request.UserAddRequestDTO;
 import com.developia.balance.dto.response.LoginResponseDTO;
+import com.developia.balance.entity.UserEntity;
 import com.developia.balance.repositories.AuthorityRepository;
 import com.developia.balance.services.UserService;
 import jakarta.validation.Valid;
@@ -47,6 +48,13 @@ public class UserRestController {
 		return gr;
 	}
 
+	@GetMapping(path = "/get-balance")
+	public GeneralResponse<String> sendOtp(){
+		GeneralResponse<String> gr=new GeneralResponse<>();
+		gr.setData(service.getBalance());
+		return gr;
+	}
+
 	@PostMapping(path = "/verify-otp")
 	@ResponseStatus(code = HttpStatus.OK)
 	public GeneralResponse<String> verifyOtp(@RequestParam String email, @RequestParam String otp) {
@@ -62,5 +70,6 @@ public class UserRestController {
 		gr.setData(service.resetPassword(email, password));
 		return gr;
 	}
+
 
 }
